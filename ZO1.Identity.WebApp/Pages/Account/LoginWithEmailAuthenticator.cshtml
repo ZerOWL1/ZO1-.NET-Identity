@@ -1,0 +1,31 @@
+﻿@page
+@model ZO1.Identity.WebApp.Pages.Account.LoginWithEmailAuthenticatorModel
+@{
+}
+
+<p>
+    <h3>Please enter the code from your email: </h3>
+</p>
+<div class="container border" style="padding-top: 30px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="EmailMfaViewModel.SecurityCode"></label>
+            </div>
+            <div class="col">
+                <input type="text" asp-for="EmailMfaViewModel.SecurityCode" class="form-control"/>
+            </div>
+            <span class="text-danger" asp-validation-for="EmailMfaViewModel.SecurityCode"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Verify</button>
+            </div>
+            <div class="col">
+                <input type="hidden" asp-for="EmailMfaViewModel.RememberMe"/>
+            </div>
+        </div>
+    </form>
+</div>

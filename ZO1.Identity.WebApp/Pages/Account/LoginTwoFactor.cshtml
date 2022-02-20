@@ -1,0 +1,32 @@
+﻿@page
+@model ZO1.Identity.WebApp.Pages.Account.LoginTwoFactorModel
+@{
+}
+
+
+<p>
+    <h3>Please enter the code from your authenticator app: </h3>
+</p>
+<div class="container border" style="padding-top: 30px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="AuthenticatorAppMfaViewModel.SecurityCode"></label>
+            </div>
+            <div class="col">
+                <input type="text" asp-for="AuthenticatorAppMfaViewModel.SecurityCode" class="form-control"/>
+            </div>
+            <span class="text-danger" asp-validation-for="AuthenticatorAppMfaViewModel.SecurityCode"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Verify</button>
+            </div>
+            <div class="col">
+                <input type="hidden" asp-for="AuthenticatorAppMfaViewModel.RememberMe"/>
+            </div>
+        </div>
+    </form>
+</div>
